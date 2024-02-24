@@ -1,0 +1,226 @@
+{% extends "userdashboard/base1.html" %}
+
+{% block home %}
+
+
+
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<meta name="theme-color" content="#c7ecff">
+<!--website-favicon-->
+<link href="/static/images/home/logo-2.png" rel="icon">
+<!--plugin-css-->
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/css/plugin.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+<!-- template-style-->
+<link href="/static/css/style.css" rel="stylesheet">
+<link href="/static/css/responsive.css" rel="stylesheet">
+<link href="/static/css/darkmode.css" rel="stylesheet">
+<style>
+ 
+</style>
+<body>
+    <!--Start login Form-->
+    <section class="login-page pad-tb">
+        <div class="v-center m-auto">
+
+            <div class="login-form-div">
+                <h4 class="mb40 text-center">Email Verification </h4>
+                <div class="form-block">
+                  
+                    <form id="emailForm">
+                        {% csrf_token %}
+                        <div class="fieldsets row">
+
+                            <div class="col-md-12 form-group " id="email2">
+                               
+                                <label for="otp"> Email:</label>
+                                <input type="email" class="form-control form-control-lg" id="email" value="{{request.user}}" name="email" placeholder="email" disabled>
+                                <button type="submit" id="submitBtn" class="lnk btn-main bg-btn">Send Code <span
+                                    class="circle"></span></button>
+                            </div>
+                            <div class="col-md-12 form-group"> 
+
+                                <div id="otpContainer" style="display: none;">
+                                    <div class="alert  mt-2" role="alert" id="otpsuccess" style="font-weight: bold;">
+                      
+                                    </div>
+                                    <label for="otp" style="font-size: 14px; font-weight: bold;">OTP:</label>
+                                    <input type="number" id="otp" name="otp" placeholder="Otp"  required="required" minlength="7">
+                                   {% if verify %}
+                                     
+                                     {% else %}
+                                    <a type="button" class="link-primary" style="cursor:pointer;" id="emails"> change email click here...</a>
+                                    
+                                    {% endif %}
+                                    <button type="button" id="submitBtn1" class="lnk btn-main bg-btn mt-3"> Otp Verify <span
+                                        class="circle"></span></button>
+                                </div>
+                            </div>
+
+                            
+                            <div class="col-md-12 form-group">
+                                <div id="otpContainer1" style="display: none;">
+                                    <div class="alert  mt-2" role="alert" id="otpsuccess1" style="font-weight: bold;">
+                      
+                                    </div>
+                                    <label for="otp">Current Email:</label>
+                                    <input type="email" id="oldemail" placeholder="Current Email" name="oldemail" value="{{request.user}}" disabled>
+                                    <label for="otp">New Email:</label>
+                                    <input type="email" id="newemail" placeholder="New Email" name="newemail"  required>
+                                    <button type="button" id="submitBtn2" class="lnk btn-main bg-btn mt-3">Update Email <span></span>
+                                  </div>
+                            </div>
+                        </div>
+                        
+                        <hr class="mt30 mb30">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End login Form-->
+</body>
+
+<!--End Footer-->
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="/static/js/vendor/modernizr-3.5.0.min.js"></script>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap.bundle.min.js"></script>
+<script src="/static/js/plugin.min.js"></script>
+<script src="/static/js/preloader.js"></script>
+<script src="/static/js/dark-mode.js"></script>
+<!--common script file-->
+<script src="/static/js/main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $("#submitBtn").click(function (e) {
+            var email = $('#email').val()
+            token = $('input[name=csrfmiddlewaretoken]').val()
+            $.ajax({
+                url: '{% url "emailverify" %}',  // Replace with your URL
+                type: 'POST',
+                data:
+                {
+                    'email': email,
+                    csrfmiddlewaretoken: token,
+                },
+                success: function (data) {
+                    $("#emailForm").find("#email2, #submitBtn").hide();
+                    $("#otpContainer").show();
+                    $('#otpsuccess').text(data.msg);
+                },
+                error: function (error) {
+                    console.log('Error:', error);
+                }
+            });
+        });
+
+
+
+        $("#submitBtn1").click(function (e) {
+            var otp = $('#otp').val()
+            token = $('input[name=csrfmiddlewaretoken]').val()
+            var baseURL = window.location.origin;
+            $.ajax({
+                url: '{% url "otp" %}',  // Replace with your URL
+                type: 'POST',
+                data:
+                {
+                    'otp': otp,
+                    csrfmiddlewaretoken: token,
+                },
+                success: function (data) {
+                  
+                   if(data.msg)
+                   {
+                    var newURL = baseURL + "/user_dashboard";
+                     location.href = newURL;
+                   }
+                   else{
+                    $('#otpsuccess').text(data.error)
+                   }
+                
+                },
+                error: function (error) {
+                    console.log('Error:', error);
+                }
+            });
+        });
+    });
+
+
+
+    
+</script>
+<script>
+
+$("#emails").click(function () {
+     $("#emailForm").find("#otpContainer").hide();
+     $("#otpContainer1").show();
+     
+    
+  });
+  $(document).ready(function () {
+  $("#submitBtn2").click(function (e) {
+            var oldemail = $('#oldemail').val()
+            var newemail = $('#newemail').val()
+            var baseURL = window.location.origin;
+        
+            //alert(newemail)
+            token = $('input[name=csrfmiddlewaretoken]').val()
+            $.ajax({
+                url: '{% url "changeemail" %}',  // Replace with your URL
+                type: 'POST',
+                data:
+                {
+                    'oldemail': oldemail,
+                    'newemail': newemail,
+                    csrfmiddlewaretoken: token,
+                },
+                success: function (data) {
+                    
+                    $('#otpsuccess1').text(data.msg);
+                    var newURL = baseURL + "/user_dashboard";
+                     location.href = newURL;
+                },
+                error: function (error) {
+                    console.log('Error:', error);
+                }
+            });
+        });
+    });
+</script>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

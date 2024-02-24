@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Order Confirmation</title>
+      <style>
+         body {
+         font-family: Arial, sans-serif;
+         background-color: #f4f4f4;
+         margin: 0;
+         padding: 0;
+         text-align: center;
+         }
+         .container {
+         max-width: 600px;
+         margin: 20px auto;
+         background-color: #ffffff;
+         border-radius: 10px;
+         overflow: hidden;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+         }
+         .header {
+         background-color: #0f105e;
+         color: #ffffff;
+         padding: 20px;
+         }
+         .header h1 {
+         margin: 0;
+         }
+         .content {
+         padding: 20px;
+         }
+         .footer {
+         background-color: #f4f4f4;
+         padding: 10px;
+         }
+         .footer p {
+         margin: 0;
+         }
+         .logo {
+         max-width: 100px;
+         margin: 0 auto;
+         }
+
+          .user-info {
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid #dddddd;
+    }
+    th{
+      font-size:14px;
+    }
+    td{
+        font-size:12px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .subtotal {
+      text-align: right;
+      font-weight: bold;
+      font-size:12px;
+      padding:14px;
+    }
+    .order_id{
+     text-align: left;
+   
+      font-size:12px;
+    
+    }
+    .gst{
+    /* margin-left: -57px; */
+    padding: 13px;
+    
+    padding-top: 34px;
+}
+.payment-details {
+            margin-bottom: 20px;
+        }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <div class="header">
+            <img class="logo" src="https://your-website.com/logo.png" alt="Your Logo">
+            <h1>Order Confirmation</h1>
+         </div>
+         <div class="content">
+            <p>Dear {{orders.user.first_name}},</p>
+            <p>Thank you for your purchase at Geek Code</p>
+            <!-- Add order details here -->
+            
+        <div class="order mt-2">
+          <p class="mt-2"> <strong>Order Details:</strong></p>
+        <p class="order_id mt-2" ><strong>Order Id:</strong> {{orders.order_id}}</p>
+        <p class="order_id mt-2"><strong>Invoice  Date:</strong>{{orders.created_at|date:"d/m/Y"}}  </p>
+        </div>
+            <table>
+      <thead>
+        <tr>
+          <th>Course</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for x in allorders %}
+          
+      
+        <tr>
+          <td>{{x.course.title}}</td>
+          <td>₹{{x.course.price}}</td>
+        </tr>
+       
+        {% endfor %}
+        <tr >
+        <td colspan="3" class="subtotal" > <strong style="font-size: 14px;">Total:</strong> ₹ {{amount}}  <br> <span class="gst"> <small> (Inculde 18% Gst) </small> </span></td>
+        </tr>
+        <!-- Add more rows for additional courses -->
+      </tbody>
+    </table>
+
+    
+
+    
+         <div class="payment-details">
+            <p><strong>Payment Details:</strong></p>
+            <p style="font-size:12px;" ><strong>Name:</strong> {{orders.user.first_name}}</p>
+            <p style="font-size:12px;"><strong>Email:</strong> {{orders.user.username}}</p>
+            <p style="font-size:12px;"><strong>Mobile:</strong>{{orders.user.last_name}}</p>
+            <p style="font-size:12px;"><strong>Payment Method:</strong> {{method}}</p>
+            
+        </div>   
+           
+            <p class="mt-2">If you have any questions or concerns, please contact our support team.</p>
+         </div>
+         <div class="footer">
+            <p>Thank you for choosing us Course. © 2024 Your Geek Code. All rights reserved.</p>
+         </div>
+      </div>
+      <script>
+         // Add any additional JavaScript logic here if needed
+      </script>
+   </body>
+</html>

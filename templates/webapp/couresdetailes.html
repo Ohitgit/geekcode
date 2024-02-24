@@ -1,0 +1,156 @@
+{% extends "webapp/base.html" %}
+
+{% block home %}
+
+<!--Breadcrumb Area-->
+<section class="breadcrumb-area">
+  <div class="text-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 v-center">
+          <div class="bread-inner">
+            <div class="bread-menu">
+              <div class="row">
+                <div class="col-lg-8 banners">
+                  <input type="hidden" id="img" value="{{course.image}}">
+                  <input type="hidden" id="title" value="{{course.title}}">
+                  <input type="hidden" id="course" value="{{course.id}}">
+                  <input type="hidden" id="price" value="{{course.price}}">
+                  {% csrf_token %}
+                  <ul class="text-start">
+                    <li><a href="{% url 'devlopment' course.languge.subcategory.category.name %}">{{course.languge.subcategory.category.name}}</a></li>
+                    <li><a href="{% url 'webdevlopment' course.languge.subcategory.name %}">{{course.languge.subcategory.name}}</a></li>
+                    <li><a href="{% url 'language' course.languge.name %}">{{course.languge.name}}</a></li>
+                  </ul>
+
+                  <h2 class="mt-2  ">{{course.title}}</h2>
+                  
+                  <p class="mt-3 text-justify">{{course.short_description}}</p>
+                  <!-- <p class="mt-2 pl-2">{{course.rating}} 
+                  </p> -->
+
+                  <p class="mt-2">Created by : <small><a href="">{{course.author}}</a> </small> </p>
+                  <p class="mt-2 abc">Created at : <small><a href="">{{created_at.created_at}}</a> </small> </p>
+                </div>
+
+                <div class="col-lg-4">
+                  <div class="card" style="width: 21rem;">
+                    <img class="card-img-top" src="{{course.image.url}}" alt="Card image cap">
+                    <div class="card-body">
+                      
+                     {% if cartitem %}
+                       
+                     <button type="submit" class="btn btn-primary smllbtnn lnk mt-2 add-cart5" name="#"
+                     value="Update cart">Added To Cart <span class="circle"></span> <i
+                     class="fas fa-check"></i></button>
+                    
+                     {% elif orders %}
+                     <button type="submit" class=" btn btn-warning smllbtnn lnk mt-2 add-cart5" name="#"
+                     value="Update cart">  <span class="circle"></span><i
+                     class="fas fa-check"></i>  Purchase</button>
+                     {%else%}
+                    
+                     <form action="{% url 'addcart' course.id %}" method="post">
+                      {% csrf_token %}
+                      <input type="hidden" name="price" value="{{course.price}}">
+                      <button type="submit" class=" btn btn-primary smllbtnn lnk mt-2 add-cart5" name="#"
+                        value="Update cart">Add To Cart <span class="circle"></span></button>
+                       <form>
+                       
+                        {% endif %}
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--End Breadcrumb Area-->
+
+
+<!-- listcard -->
+
+<section class="listcard mt-5 ">
+   <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+       
+        <div class="card" >
+          
+          <div class="card-body">
+            <h5>What you'll learn</h5>
+            <ul class="list list-ul ul-check mt-3">
+              <li class="mt-3" ><span>  You will learn how to leverage the power of Python to solve tasks.</li>
+              <li class="mt-3"> You will learn how to leverage the power of Python to solve tasks.</span></li>
+              
+            </ul>
+            <ul class="list list-ul ul-check">
+              <li class="mt-3" > You will learn how to leverage the power of Python to solve tasks.</li>
+              <li class="mt-3"> You will learn how to leverage the power of Python to solve tasks.</span></li>
+              
+            </ul>
+            <ul class="list list-ul ul-check mt-3">
+              <li class="mt-3" > You will learn how to leverage the power of Python to solve tasks.</li>
+              <li class="mt-3"> You will learn how to leverage the power of Python to solve tasks.</span></li>
+              
+            </ul>
+
+            <ul class="list list-ul ul-check mt-3">
+              <li class="mt-3" > You will learn how to leverage the power of Python to solve tasks.</li>
+              <li class="mt-3"> You will learn how to leverage the power of Python to solve tasks.</span></li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
+
+
+  </section>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ <script>
+
+  $('.add-cart').click(function () {
+
+alert('okk')
+    var img = $('#img').val()
+    alert(img)
+    var title= $('#title').val()
+    var course = $('#course').val()
+    var price = $('#price').val()
+   // var token = $('input[name=csrfmiddlewaretoken]').val()
+
+
+
+    $.ajax({
+      type: 'GET',
+      url: '',
+      data: {
+        'title':title,
+        'img':img,
+        'course_id': course,
+        'price': price,
+        
+      },
+      success: function (response) {
+        console.log(response.data)
+        alert(response.totalitem)
+        $('.addtocart').text(response.totalitem)
+       
+        // console.log('Success')
+      }
+    })
+  });
+
+</script> 
+{% endblock %}

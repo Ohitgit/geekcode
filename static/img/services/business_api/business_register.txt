@@ -1,0 +1,60 @@
+date 3-11-23
+
+*********************
+			API DOCUMENTATION FORMAT
+*********************
+
+
+******
+STEP:1
+******
+API Title = Register
+API Description (Write About Api) =For Business 
+
+HeaderType= { 'Content-Type': 'application/json',  'Authorization': no },
+Method=POST
+EndPoint/url=https://api.aroundme.co.in/login/register/
+
+
+******
+STEP:2
+******
+Payload=
+//Mention If Any Field Validation Done
+{
+    "business_name":"tes5634",
+    "username":"70087888",
+    "email":"abc@gmail.com",
+    "password":"123456",
+    "user_type":"BU"               
+    
+
+
+}
+******
+STEP:3
+******
+//Follow these steps to check API from backend
+Test 1 = Request(200)
+Test 2 = Response(okk)
+Test 3 = DataBase(yes)
+Test 4 = FileSystem()
+
+
+
+******
+STEP:4
+******
+//Output
+
+
+
+Show Response Data/Message
+
+{
+    "message": " User created successfully"
+}
+
+***********************
+Once Above Steps are done, Process Api For UI teams to Integrate.
+***********************

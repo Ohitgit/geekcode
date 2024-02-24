@@ -1,0 +1,60 @@
+*********************
+			API DOCUMENTATION FORMAT
+*********************
+
+
+******
+STEP:1
+******
+API Title = Login
+API Description (Write About Api) =For Business
+
+HeaderType= { 'Content-Type': 'application/json',  'Authorization': no },
+Method=POST
+EndPoint/url=https://api.aroundme.co.in/login/userlogin/
+
+
+******
+STEP:2
+******
+Payload=
+//Mention If Any Field Validation Done
+{
+    "username":"7744890667",
+    "password":"123456"
+    
+}
+
+******
+STEP:3
+******
+//Follow these steps to check API from backend
+Test 1 = Request(200)
+Test 2 = Response(okk)
+Test 3 = DataBase(yes)
+Test 4 = FileSystem()
+
+
+
+******
+STEP:4
+******
+//Output
+
+
+
+Show Response Data/Message
+
+{
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY5OTA5MTc0NywiaWF0IjoxNjk5MDA1MzQ3LCJqdGkiOiIzN2Y4ZDUwNjNiMGE0ZDg4YjAxZmZmNzIzYWJlMTU5MiIsInVzZXJfaWQiOjQyfQ.Xzzi060FqniahdnwuJHER3CJSMeL47bCwHW77Ji7vfU",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk5MDkxNzQ3LCJpYXQiOjE2OTkwMDUzNDcsImp0aSI6IjQ5MTE2N2QwMzg1NTQ5MWViODE2NmRmODk0Y2NiOGYzIiwidXNlcl9pZCI6NDJ9.Y3OmH3gI1zE-8EfHF0PKQEijRzLw-xvNyzIPIs5ZmrA",
+    "username": "8085410641",
+    "id": 42,
+    "is_superuser": false,
+    
+    "message": "Welcome back! You have successfully logged in."
+}
+
+***********************
+Once Above Steps are done, Process Api For UI teams to Integrate.
+***********************

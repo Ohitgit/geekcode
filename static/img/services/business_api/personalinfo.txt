@@ -1,0 +1,60 @@
+*********************
+			API DOCUMENTATION FORMAT
+*********************
+
+
+******
+STEP:1
+******
+API Title =
+API Description (Write About Api) =business api
+
+HeaderType= application/json
+Method=get
+EndPoint/url=https://api.aroundme.co.in/businessapp/BusinessOwnerView/?id=748
+
+
+******
+STEP:2
+******
+Payload=
+//Mention If Any Field Validation Done
+ "data": {
+        "id": 748,
+        "name": "tes5634",
+        "mobile_no": "70087888",
+        "email_optional": "abc@gmail.com",
+        "Bank_Name": null,
+        "Bank_Account_No": null,
+        "birth": null,
+        "gender": null,
+        "Bank_Ifsc_Code": null,
+        "img": null,
+        "username": null,
+        "password": null,
+        "CRT_DT": "2024-01-08T10:14:13.978421Z",
+        "MDF_DT": "2024-01-08T10:14:13.978450Z",
+        "user": 867,
+        "CRT_BY": null,
+        "MDF_BY": null
+    },
+******
+STEP:3
+******
+//Follow these steps to check API from backend
+Test 1 = Request(200)
+Test 2 = Response(okk)
+Test 3 = DataBase(okk)
+Test 4 = FileSystem()
+
+
+******
+STEP:4
+******
+
+
+Show Response Data/Message
+
+***********************
+Once Above Steps are done, Process Api For UI teams to Integrate.
+***********************

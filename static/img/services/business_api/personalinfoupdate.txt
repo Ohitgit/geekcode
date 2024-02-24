@@ -1,0 +1,70 @@
+*********************
+			API DOCUMENTATION FORMAT
+*********************
+
+
+******
+STEP:1
+******
+API Title =
+API Description (Write About Api) =business api
+
+HeaderType= application/json
+Method=put
+authcation-token=rquired
+EndPoint/url=https://api.aroundme.co.in/businessapp/BusinessOwner/edit/748/
+
+
+******
+STEP:2
+******
+Payload=
+//Mention If Any Field Validation Done
+ {
+   "name":"hair  salon",
+    "mobile_no":"789067890",
+    "email_optional": "abc@gmail.com",
+    "Bank_Account_No":"56977",
+    "Bank_Name":"ifc" ,
+    " Bank_Ifsc_Code":"abc"
+}
+******
+STEP:3
+******
+//Follow these steps to check API from backend
+Test 1 = Request(200)
+Test 2 = Response(okk)
+Test 3 = DataBase(okk)
+Test 4 = FileSystem()
+
+
+******
+STEP:4
+******
+
+
+Show Response Data/Message
+
+{
+    "id": 748,
+    "name": "hair  salon",
+    "mobile_no": "789067890",
+    "email_optional": "abc@gmail.com",
+    "Bank_Name": "ifc",
+    "Bank_Account_No": 56977,
+    "birth": null,
+    "gender": null,
+    "Bank_Ifsc_Code": null,
+    "img": null,
+    "username": null,
+    "password": null,
+    "CRT_DT": "2024-01-08T10:14:13.978421Z",
+    "MDF_DT": "2024-01-10T04:20:01.050563Z",
+    "user": 867,
+    "CRT_BY": null,
+    "MDF_BY": null
+}
+
+***********************
+Once Above Steps are done, Process Api For UI teams to Integrate.
+***********************

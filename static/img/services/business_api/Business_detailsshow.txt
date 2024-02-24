@@ -1,0 +1,86 @@
+date 3-11-23
+
+*********************
+			API DOCUMENTATION FORMAT
+*********************
+
+
+******
+STEP:1
+******
+API Title = business detailes
+API Description (Write About Api) =For Business detailes 
+
+HeaderType= { 'Content-Type': 'application/json',  'Authorization': yes },
+Method=GET
+EndPoint/url=https://api.aroundme.co.in/businessapp/?id=517
+
+
+******
+STEP:2
+******
+Payload=
+//Mention If Any Field Validation Done using form data
+
+
+        
+        "business_name": "shop566",
+        "map_url": null,
+        "open_time": "10:00",
+        "close_time": "9:00",
+        "weekday_off": null,
+        "pincode": null,
+        "state": "dfgfg",
+        "address": "ghfgh",
+        "shop_image": null,
+        "slug": null,
+        "gst_optional": null,
+        "business_documents_front_optional": null,
+        "business_documents_back_optional": null,
+        "business_logo": null,
+        "pan_no": "uuu",
+        "description": null,
+        "business_status": "A",
+        "meta_keyword": null,
+        "title": null,
+        "meta_title": null,
+        "meta_tags": null,
+        "meta_description": null,
+        "latitude": null,
+        "longitude": null,
+        "distance": null,
+       
+        "price_status": 0,
+        "rating": null,
+        "Business_Owner_detail": 748,
+        "category_id": 1,
+        "city": 1,
+        
+
+******
+STEP:3
+******
+//Follow these steps to check API from backend
+Test 1 = Request(200)
+Test 2 = Response(okk)
+Test 3 = DataBase(yes)
+Test 4 = FileSystem()
+
+
+
+******
+STEP:4
+******
+//Output
+
+
+
+Show Response Data/Message
+
+{
+    "message": " User created successfully"
+}
+
+***********************
+Once Above Steps are done, Process Api For UI teams to Integrate.
+***********************

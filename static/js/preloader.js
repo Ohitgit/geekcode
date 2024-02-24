@@ -1,0 +1,1 @@
+!function(e){"use strict";window.addEventListener("load",(function(){document.getElementById("page_loader").style.display="none"}))}(jQuery);
