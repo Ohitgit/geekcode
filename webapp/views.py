@@ -662,7 +662,7 @@ def emailexists(request):
 
 
 def demo(request):
-    return render(request,'webapp/demo.html')
+    return render(request,'webapp/certificate.html')
 
 
 

@@ -111,4 +111,14 @@ class order(models.Model):
 class EmailVerfication(models.Model):
       email = models.CharField(max_length=100,null=True,blank=True ,db_index=True)
       is_verify=models.BooleanField(default=False)
-   
+  
+
+
+class Certificate(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE,null=True,blank=True,db_index=True)
+    course= models.ForeignKey(Course, on_delete=models.CASCADE,db_index=True,null=True)
+    certificate_image = models.FileField(upload_to='certificates/',db_index=True,null=True)
+    completion_date = models.DateTimeField(auto_now_add=True,db_index=True)
+
+    # def _str_(self):
+    #     return f"{self.user.username}'s Certificate for {self.bootcamp.name}"

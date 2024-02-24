@@ -11,7 +11,7 @@ admin.site.register(CartItem)
 admin.site.register(Profile)
 admin.site.register(EmailVerfication)
 admin.site.register(Language)
-
+admin.site.register(Certificate)
 
 
 
