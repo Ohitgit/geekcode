@@ -168,7 +168,7 @@ def course(request,slug):
     
     cat=Category.objects.get(slug=slug)
     subcategory=SubCategory.objects.filter(category=cat)
-    course=Course.objects.filter(languge__subcategory__in=[ x.id for x in subcategory ])
+    course=Course.objects.filter(languge__subcategory__in=( x.id for x in subcategory ))
     cart=None
     try:
          if request.user.is_authenticated:
@@ -532,25 +532,22 @@ def user_dashboard(request):
 def serach(request,search):
    
    if Category.objects.filter(name__icontains=search).exists():
-     cat=Category.objects.filter(name__icontains=search)
-     subcategory=SubCategory.objects.filter(category__in=[x.id for x in cat])
-     course=Course.objects.filter(subcategory__in=[ x.id for x in subcategory ])
+     cat=Category.objects.filter(name__icontains=search).values_list('id', flat=True)
+     subcategory=SubCategory.objects.filter(category__in=cat).values_list('id', flat=True)
+     course=Course.objects.filter(languge__subcategory__in=subcategory)
      category=Category.objects.all()
      cart=''
      if request.user.is_authenticated:
        cartitem1=CartItem.objects.filter(user=request.user)
        cart1=Cart.objects.filter(cart_id__in=[x.cart for x in cartitem1])
        cart=CartItem.objects.filter(cart__cart_id__in=[i.cart_id for i in cart1],user=request.user).count()
-     else:
-        pass
-    #  cart=Cart.objects.filter(user=request.user).count()
+       
      context={'course':course,'category':category,'cart':cart}
      return render(request,'webapp/course.html',context)
    elif SubCategory.objects.filter(name__icontains=search).exists():
-         subcategory=SubCategory.objects.filter(name__icontains=search)
-         course=Course.objects.filter(subcategory__in=[ x.id for x in subcategory ])
+         subcategory=SubCategory.objects.filter(name__icontains=search).values_list('id', flat=True)
+         course=Course.objects.filter(languge__subcategory__in= subcategory)
          category=Category.objects.all()
-        #  cart=Cart.objects.filter(user=request.user).count()
          context={'course':course,'category':category}
          return render(request,'webapp/course.html',context)
    elif Course.objects.filter(languge__name__icontains=search).exists():
@@ -583,35 +580,38 @@ def categoryserach(request,search):
 
 
 def devlopment(request,slug):
+    category=Category.objects.all()
     if Category.objects.filter(slug__icontains=slug).exists():
-     cat=Category.objects.filter(slug__icontains=slug)
-     subcategory=SubCategory.objects.filter(category__in=[x.id for x in cat])
-     course1=Language.objects.filter(subcategory__in=[ x.id for x in subcategory ])
-     course=Course.objects.filter(languge__name__in=[ x.name for x in course1])
+     cat=Category.objects.filter(slug__icontains=slug).values_list('id', flat=True)
+     subcategory=SubCategory.objects.filter(category__in=cat).values_list('id', flat=True)
+     course1=Language.objects.filter(subcategory__in= subcategory )
+     course_names = course1.values_list('name', flat=True)
+     course=Course.objects.filter(languge__name__in=  course_names)
      print('course',course)
-     context={'course':course}
+     context={'course':course,'category':category}
      return render(request,'webapp/course.html',context)
     else:
          return render(request,'webapp/coming-soon.html')
-
-    
+   
 def webdevlopment(request,slug):
+    category=Category.objects.all()
     if SubCategory.objects.filter(slug__icontains=slug).exists():
-         print('okk')
-         subcategory=SubCategory.objects.filter(slug__icontains=slug)
-         course1=Language.objects.filter(subcategory__in=[ x.id for x in subcategory ])
-         course=Course.objects.filter(languge__name__in=[ x.name for x in course1])
-         context={'course':course}
-         return render(request,'webapp/course.html',context)
+        subcategory_ids = SubCategory.objects.filter(slug__icontains=slug).values_list('id', flat=True)
+        course1 = Language.objects.filter(subcategory__in=subcategory_ids)
+        course_names = course1.values_list('name', flat=True)
+        course = Course.objects.filter(languge__name__in=course_names)
+        context={'course':course,'category':category}
+        return render(request,'webapp/course.html',context)
     else:
         return render(request,'webapp/coming-soon.html')
 
 
 def language(request,slug):
+    category=Category.objects.all()
     if Course.objects.filter(languge__name=slug).exists():
         
          course=Course.objects.filter(languge__name=slug)
-         context={'course':course}
+         context={'course':course,'category':category}
          return render(request,'webapp/course.html',context)
     else:
         return render(request,'webapp/coming-soon.html')  

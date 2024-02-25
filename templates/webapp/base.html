@@ -93,14 +93,14 @@
                       {% for categorys in category %}
                        
                         <li class="subcategory">
-                            <a href="{% url 'devlopment' categorys.slug %}">{{categorys.name}}</a>
+                            <a href="{% url 'development' categorys.slug %}">{{categorys.name}}</a>
                             {% if categorys.subcategory_set.all %}
                             <ul>
                               {% for subcategorys in categorys.subcategory_set.all %}
                             
                              
                                 <li class="course">
-                                    <a href="{% url 'webdevlopment' subcategorys.slug %}">{{ subcategorys.name }}</a>
+                                    <a href="{% url 'webdevelopment' subcategorys.slug %}">{{ subcategorys.name }}</a>
                                     {% if subcategorys.language_set.all %}
                                     <ul>
                                       {% for course in subcategorys.language_set.all %}
@@ -184,15 +184,15 @@
          
           <!-- mobile + desktop - sidebar menu- dark mode witch and button -->
           <ul class="nav-list right-end-btn">
+           
 
-
-
-
-
-       
+            
+            
+           
+                
 
             <li class="navm- hidedesktop"> <a class="toggle" href="#"><span></span></a></li>
-          </ul>
+        </ul>
         </div>
       </div>
 

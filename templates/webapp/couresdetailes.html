@@ -18,8 +18,8 @@
                   <input type="hidden" id="price" value="{{course.price}}">
                   {% csrf_token %}
                   <ul class="text-start">
-                    <li><a href="{% url 'devlopment' course.languge.subcategory.category.name %}">{{course.languge.subcategory.category.name}}</a></li>
-                    <li><a href="{% url 'webdevlopment' course.languge.subcategory.name %}">{{course.languge.subcategory.name}}</a></li>
+                    <li><a href="{% url 'development' course.languge.subcategory.category.name %}">{{course.languge.subcategory.category.name}}</a></li>
+                    <li><a href="{% url 'webdevelopment' course.languge.subcategory.name %}">{{course.languge.subcategory.name}}</a></li>
                     <li><a href="{% url 'language' course.languge.name %}">{{course.languge.name}}</a></li>
                   </ul>
 

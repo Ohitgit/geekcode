@@ -75,12 +75,12 @@
        {% for i in category %}
          
        
-      <div class="col-lg-3 mt-4">
+      <div class="col-lg-3 col-xs-12 col-sm-12 col-md-12 mt-4">
         <a href="{% url 'course' i.slug %}">
         <div class="card isotope_item hover-scale" style="width: 18rem;">
           <img src="{{i.image.url}}" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">{{i.name}}</h5>
+            <h5 class="card-title ">{{i.name}}</h5>
 
           </div>
         </div>
