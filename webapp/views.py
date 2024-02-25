@@ -714,6 +714,24 @@ def profilechangepassword(request):
 
 
 
+def invoice_pdf(request,order_id):
+    orders=order.objects.filter(order_id=order_id)
+    orders1=order.objects.filter(order_id=order_id).first()
+    image="/static/img/carousel/certificate.jpg"
+    profile=Profile.objects.filter(user__username=orders1.user.username).first()
+    
+    template_path = "pdf/invoice.html"
+    print('template_path',template_path)
+    context = {'orders':orders,'profile':profile,'orders1':orders1,'image':image}  
+    template = get_template(template_path)
+    html = template.render(context)
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="invoice.pdf"'
+    pisa.CreatePDF(html, dest=response)
+    return response
+
+
+
 
 
 

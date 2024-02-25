@@ -27,7 +27,7 @@ urlpatterns = [
     path('forgot', forgot, name='forgot'),
   
     path('page', page, name='page'),
-  
+    path("invoice/<str:order_id>",invoice_pdf ,name="invoice"),
     path('course_list',course_list,name="course_list"),
     path('change-password/<str:token>',changepassword, name='change_password'),
 

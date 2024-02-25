@@ -1,123 +1,36 @@
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-<style>
-
-  
-  
-  
-  .table>:not(caption)>*>* {
-      padding: 1.5rem 9.5rem !important;
-      background-color: var(--bs-table-bg);
-      border-bottom-width: 0px !important;
-      box-shadow: 0 !important;
-  }
-  .tables1 {
-      padding: 15px;
-      border: 1px solid #e7e7ec;
-      border-radius: .25rem;
-      box-shadow: 0 .5rem .937rem rgba(140,152,164,.1);
-      margin-bottom: 30px;
-     
-      
-  }
-  table {
-      
-      border-collapse:initial !important;
-  }
-  .tables th {
-      
-      font-size: 12px;
-  }
-  
-  
-  </style>
 <body>
-  <section class="mt30 order-details">
-    <div class="container">
-      <div class="row">
-          <div class="col-lg-12">
-              <h1 class="order-details__title">Order details</h1>
   
-              <table class="tables tables1">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Mobile No</th>
-                      <th>Order number</th>
-                      <th >Course</th>
-                      <th>Date</th>
-                      
-                     
-                      <th scope="col">Total</th>
-  
-                      
-                    </tr>
-                  </thead>
-                  <tbody>
-                  {% for x in orders  %}
-                    
-               
-                  <tr>
-                      <td>{{profile.name}}</td>
-                      <td>{{profile.phone}}</td>
-                      <td>{{x.order_id}}</td>
-                      
-                      <td>{{x.course.name}}</td>
-                      <td>{{x.created_at}}</td>
-                      <td>{{x.course.price}}</td>
-                  </tr> 
-                  {% endfor %} 
-                
-                  <!-- <tr>
-                      <td>Hoodie × 2</td>
-                
-                      <td>59.00</td>
-                  </tr>   -->
-  
-                  <tr>
-                      <td>SubTotal:  <small style="font-size: 8px;font-weight: bold;">(Inculde 18% GST )</small></td>
-                
-                      <td>₹ {{amount}} </td>
-                  </tr>  
-  
-                  <tr>
-                      <td>Total: <small style="font-size: 8px;font-weight: bold;">(Inculde 18% GST )</small></td>
-                
-                      <td>₹ {{amount}}</td>
-                  </tr>  
-                  </tbody>
-                </table>
-          </div>
-      </div>
-    </div>
-  
-  
-      
-  </section>
-</body>
+<head>
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+</head>
+<div class="container" style=" position:relative;
+text-align:center;
+padding: 5%;">
+<img src="http://127.0.0.1:8000/certificate" alt="certification" border="0" class="certificate" style="height: 512px;">  
+<div class="centered" style="position: absolute;
+width:400px;
+top: 36%;
+left: 35%;">
+<span style="font-weight:bold">Certificate of Completion</span></br></br>
+<span><i>This is to certify that</i></span>
+</br></br>
+<span style="font-weight:bold">{{profile.name}}</span></br></br>
+<span><i>has completed the course</i></span></br></br>
+<span style="font-weight:bold">{{orders1.course.languge.name}}</span>
+
+<p id="cdate" style="font-weight:bold">Date: {{orders1.created_at}}</p>
+</div>
+</div>  
 </html>
 
 
-
-
     
-
-  
- 
+</body>
+</html>
