@@ -27,9 +27,10 @@ env.read_env(str(env_file))
 SECRET_KEY = 'django-insecure-dzz+#m&mytm#7r$rue@akmsb2d&^f43o#6sl^woz7n&en$s1az'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUG', default=False)
+print('debug',DEBUG)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
