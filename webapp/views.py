@@ -734,4 +734,26 @@ def invoice_pdf(request,order_id):
 
 
 
+def privacypolicy(request):
+    return render(request,'webapp/privacypolicy.html')
 
+def accessibility(request):
+    return render(request,'webapp/accessibility.html')
+
+
+def careers(request):
+    return render(request,'webapp/careers.html')
+
+
+def helpsupport(request):
+    return render(request,'webapp/helpsupport.html')
+
+
+
+def aboutus(request):
+    return render(request,'webapp/about-us.html')
+
+
+
+def contact(request):
+    return render(request,'webapp/contact.html')

@@ -263,22 +263,18 @@
               
               
               <ul class="footer-address-list ftr-details">
-                <li>
-                  
-                <a href="">Geek Code Business</a>
-                  
-                </li>
+                
                 <li>
                   
                   <a href="">Teach On Geek Code</a>
                   
                 </li>
                 <li>
-                  <a href="">About Us</a>
+                  <a href="{% url 'aboutus' %}">About Us</a>
                  
                 </li>
                 <li>
-                 <a href="">Contact Us</a>
+                 <a href="{% url 'contact' %}">Contact Us</a>
                   
                 </li>
                 <li><a class="footer-logo"><img
@@ -293,49 +289,40 @@
             <ul class="footer-address-list ftr-details">
               <li>
                 
-              <a href="">Careers</a>
-                
-              </li>
-              <li>
-                
-                <a href="">Blog</a>
-                
-              </li>
-              <li>
-                <a href="">Help and Support</a>
-               
-              </li>
-              <li>
-               <a href="">Affiliate</a>
+              <a href="{% url 'careers' %}">Careers</a>
                 
               </li>
              
-            </ul>
-          </div>
-          <div class="col-lg-2 col-sm-6">
-            <ul class="footer-address-list ftr-details">
               <li>
-                
-              <a href="">Terms</a>
-                
-              </li>
-              <li>
-                
-                <a href="">Privacy Policy</a>
-                
-              </li>
-              <li>
-                <a href="">Cookie Settings </a>
+                <a href="{% url 'helpsupport' %}">Help and Support</a>
                
               </li>
+              
+             
+            </ul>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <ul class="footer-address-list ftr-details">
+              
+              <li>
+                
+                <a href="{% url 'privacypolicy' %}">Privacy Policy</a>
+                
+              </li>
+              
               <li>
                <a href="">Sitemap</a>
                 
               </li>
+
+              <li>
+                <a href="{% url 'accessibility' %}">Accessibility Statement</a>
+                 
+               </li>
               
             </ul>
           </div>
-          <p style="color:#fff; text-align: center;">© 2020-2023. All Rights Reserved By Geek Code</p>
+          <p style="color:#000; text-align: center; font-weight: bold; position: absolute; bottom:80px;">© 2020-2023. All Rights Reserved By Geek Code</p>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@
 
 {% block home %}
 <div class="container mt-5 ">
-    <div class="row">
+    <div class="row ">
         <div class="col-lg-12 mt-5">
          {% if sub1.subcategory.category.name %}
          <h1 class="">{{sub1.subcategory.category.name}} Courses </h1>
@@ -22,11 +22,11 @@
 
 <section class="card-slider mt-5">
     <div class="container">
-        <div class="row">
+        <div class="row mt-5">
                  {% for i in course  %}
                    
                 
-                <div class="col-lg-3">
+                <div class="col-lg-3 mt-3">
                     <a href="{% url 'coursedetailes'  i.slug  %}">
                     <div class="card" style="width: 18rem;">
                         <img class="card-img-top" src="{{i.image.url}}" alt="Card image cap">

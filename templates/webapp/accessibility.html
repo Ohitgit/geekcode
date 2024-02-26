@@ -1,0 +1,73 @@
+{% extends "webapp/base.html" %}
+
+{% block home %}
+<style>
+
+.information li::before {
+  
+    content: '\2022';
+    position: absolute;
+    left: 98px;
+    font-size: 30px;
+    color: black;
+
+    }
+    .information li{
+        line-height: 26px; 
+        margin-left: 32px;
+
+    }
+</style>
+
+<div class="row">
+    <div class="container">
+        <div class="col-lg-12 " style="margin-top: 120px;">
+            <h3>Accessibility Commitment</h3>
+
+            <p class="text-justify mt-3">At GeekCode.in, managed by Triage Solutions, we are dedicated to ensuring that our website and services are accessible to all individuals, regardless of disability. We are committed to complying with relevant accessibility standards and guidelines to provide an inclusive online experience for everyone.</p>
+        
+            <h6 class="mt-4">Our Accessibility Commitment includes: </h6>
+
+            <ul class="text-justify mt-3 information">
+                 <li>Compliance with Standards: We strive to adhere to internationally recognized accessibility standards such as the Web Content Accessibility Guidelines (WCAG) to ensure our website is perceivable, operable, understandable, and robust for all users.</li>
+                  <li class="mt-2">Continuous Improvement: We regularly assess and improve the accessibility of our website and digital content through ongoing monitoring, evaluation, and feedback from users.</li>
+                </ul>
+            <h6 class="mt-4">User Support: </h6>
+
+            <ul class="text-justify mt-3 information">
+                <li>We provide assistance and support to users encountering accessibility barriers. If you encounter any accessibility issues or have suggestions for improvement, please contact us at . <a href="mailto:support@geekcode.co.in">support@geekcode.co.in</a></li>
+                 <li class="mt-2">Training and Awareness: We invest in training and raising awareness among our team members to foster a culture of accessibility and ensure all individuals involved in website development understand their responsibilities.</li>
+                 <li class="mt-2">Compliance Monitoring: We conduct regular audits and assessments to ensure our website and services comply with accessibility standards and regulations.</li>
+               
+                </ul>
+
+                <h6 class="mt-4">Collaboration: </h6>
+
+            <ul class="text-justify mt-3 information">
+                <li>We collaborate with accessibility experts, organizations, and stakeholders to stay informed about best practices and emerging trends in digital accessibility.</li>
+                
+            </ul>
+
+
+            <h6 class="mt-4">Transparency: </h6>
+
+            <ul class="text-justify mt-3 information">
+                <li>We are committed to transparently communicating our accessibility efforts, progress, and any known limitations to our users.</li>
+                 <li class="mt-2">We believe that accessibility is a fundamental aspect of digital inclusion and equality. By prioritizing accessibility in our practices and initiatives, we aim to create a more accessible and equitable online environment for all users.</li>
+            </ul>
+
+
+            <h6 class="mt-4">Thank you for your support and partnership in our accessibility journey at GeekCode.in </h6>
+
+           
+
+
+          
+
+            
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
