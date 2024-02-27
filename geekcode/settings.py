@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'webapp',
     'django_summernote',
+    'django_recaptcha'
 ]
 
 MIDDLEWARE = [
@@ -151,10 +152,12 @@ RAZOR_KEY_SECRET=env('RAZOR_KEY_SECRET')
 # RAZOR_KEY_ID="rzp_test_7UQe0QqyW56WC6"
 # RAZOR_KEY_SECRET="HbwaPuIWLVTgmJxxdu6TAzv4"
 
-
+RECAPTCHA_PUBLIC_KEY=env('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY=env('RECAPTCHA_PRIVATE_KEY')
 EMAIL_BACKEND = env('EMAIL_BACKEND')
 EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS', default=True)
 EMAIL_HOST = env('EMAIL_HOST')
 EMAIL_PORT = env('EMAIL_PORT')
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+BASE_URL=env('BASE_URL')

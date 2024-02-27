@@ -35,6 +35,7 @@ class Language(models.Model):
      subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE,null=True,db_index=True)
      def __str__(self):
       return str(self.name)
+from django.utils import timezone as tz
      
 class Course(models.Model):
    
@@ -48,7 +49,7 @@ class Course(models.Model):
     short_description=models.TextField(null=True)
     price = models.IntegerField(null=True,blank=True ,db_index=True)
     image=models.FileField(null=True,db_index=True,upload_to='media/images/')
-    created_at=models.DateTimeField(auto_now_add=True,null=True)
+    datetime=models.DateTimeField(null=True,default=tz.now)
     def __str__(self):
       return str(self.title)
 
@@ -122,3 +123,18 @@ class Certificate(models.Model):
 
     # def _str_(self):
     #     return f"{self.user.username}'s Certificate for {self.bootcamp.name}"
+  
+
+
+
+
+class Teach(models.Model):
+    name = models.CharField(max_length=100,null=True,blank=True ,db_index=True)
+    email = models.CharField(max_length=100,null=True,blank=True ,db_index=True)
+    mobile = models.CharField(max_length=100,null=True,blank=True ,db_index=True)
+    certification = models.CharField(max_length=100,null=True,blank=True ,db_index=True)
+    qualification = models.CharField(max_length=100,null=True,blank=True ,db_index=True)
+    message = models.CharField(max_length=100,null=True,blank=True ,db_index=True)
+    created_at=models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+      return str(self.name)

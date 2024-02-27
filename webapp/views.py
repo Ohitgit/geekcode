@@ -38,8 +38,10 @@ def course_list(request):
 
 def home(request):
    category=Category.objects.all()
-   # cart=Cart.objects.filter(user=request.user).count()
-   context={'category':category}
+   
+   allcourse=Language.objects.values_list('name',flat=True)
+   
+   context={'category':category,'allcourse':allcourse}
    return render(request,'webapp/index.html',context)
 
 def logout_view(request):
@@ -269,11 +271,16 @@ def cart(request,total_price1=0,cartitems=None):
        cartitems=CartItem.objects.filter(cart__cart_id__in=[i.cart_id for i in cart1],user=request.user)
        cart1=Cart.objects.filter(cart_id__in=[x.cart for x in cartitems])
        total_price1=int(sum(x.price for x in cartitems))
+       base_url=settings.BASE_URL
+       print('authuser',base_url)
+       callback_url = 'orderreceived'
      else:
        carts=Cart.objects.get(cart_id=cart_sessions(request))
        cartitems=CartItem.objects.filter(cart=carts)
        cart=CartItem.objects.filter(cart=carts).count()
        total_price1=int(sum(x.price for x in cartitems))
+       callback_url = 'order_received'
+       base_url=settings.BASE_URL
  except Cart.DoesNotExist :
           pass
  currency = 'INR'
@@ -292,8 +299,11 @@ def cart(request,total_price1=0,cartitems=None):
 ))
  razorpay_order_id = razorpay_order['id']
  request.session['razorpay_order_id'] = razorpay_order_id
+ 
  rozarpay_key=settings.ROZARPAY_KEY
- context={'carts':cartitems,'cart':cart,'total_price':amount,'razorpay_order_id':razorpay_order_id,'rozarpay_key':rozarpay_key,'currency':currency}
+ 
+
+ context={'base_url':base_url,'callback_url':callback_url,'carts':cartitems,'cart':cart,'total_price':amount,'razorpay_order_id':razorpay_order_id,'rozarpay_key':rozarpay_key,'currency':currency}
  return render(request,"webapp/cart1.html",context)
 
 
@@ -750,10 +760,21 @@ def helpsupport(request):
 
 
 
-def aboutus(request):
-    return render(request,'webapp/about-us.html')
+def refund(request):
+    return render(request,'webapp/refund.html')
 
 
 
-def contact(request):
-    return render(request,'webapp/contact.html')
+def teach(request):
+    fm = TeachForm()
+    message=None
+    if request.method == 'POST':
+        name=request.POST['name']
+        email=request.POST['email']
+        certification=request.POST['certification']
+        qualification=request.POST['qualification'],
+        message=request.POST['message'],
+        Teach.objects.create(name=name,email=email,certification=certification,qualification=qualification,message=message)
+        message="Your From Inserted Successfully.." 
+    context={'form':fm,'message':message}
+    return render(request,'webapp/contact.html',context)

@@ -77,7 +77,7 @@
        
       <div class="col-lg-3 col-xs-12 col-sm-12 col-md-12 mt-4">
         <a href="{% url 'course' i.slug %}">
-        <div class="card isotope_item hover-scale" style="width: 18rem;">
+        <div class="card isotope_item hover-scale">
           <img src="{{i.image.url}}" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title ">{{i.name}}</h5>
@@ -184,5 +184,40 @@
 
 
 
+<script>
 
+var owl = $('.niwax-review-slider');
+    owl.owlCarousel({
+      items: 3,
+      loop: true,
+      center: false,
+      autoplay: true,
+      margin: 20,
+      nav: false,
+      dots: true,
+      autoplayTimeout: 3500,
+      autoplayHoverPause: true,
+      smartSpeed: 2000,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        520: {
+          items: 1
+        },
+        768: {
+          items: 2
+        },
+        1200: {
+          items: 2
+        },
+        1400: {
+          items: 3
+        },
+        1600: {
+          items: 3
+        },
+      }
+    });
+</script>
 {% endblock %}

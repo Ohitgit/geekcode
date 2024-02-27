@@ -3,15 +3,7 @@
 <html lang="en" class="no-js">
 
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EMRG2SBB40"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
 
-    gtag('config', 'G-EMRG2SBB40');
-  </script>
 
   <meta charset="utf-8" />
   <title>Geek Code</title>
@@ -29,7 +21,14 @@
   <link href="/static/css/bootstrap.min.css" rel="stylesheet">
   <link href="/static/css/plugin.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.theme.default.min.css">
 
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Owl Carousel JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
@@ -41,7 +40,25 @@
 </head>
 <style>
 
-
+@media only screen and (max-width: 400px) {
+  .dropdown-menu1 li {
+    display: none;
+    
+}
+.hc-offcanvas-nav li.nav-close a, .hc-offcanvas-nav li.nav-back a {
+   
+    padding: 32px;
+}
+.mobile-logo {
+    /* position: absolute; */
+    /* top: -120px; */
+    position: absolute;
+    width: 105px;
+    height: 108px;
+    top: -80px;
+    left: -13px;
+}
+}
 
 
 
@@ -53,11 +70,6 @@
 
 
 <body>
-
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCWR3D5" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
 
 
@@ -80,7 +92,7 @@
           </a>
 
         </div>
-        <input type="text" placeholder="Serach for anything" id="searchinput" class="form-control searchinput tags" id="tags"> <button type="submit"
+        <input type="text" placeholder="Serach for anything" id="searchinput" class="form-control-sm  form-control-xs form-control-md searchinput tags" id="tags"> <button type="submit"
           class="icon" id="icon" ><i class="fa fa-search" style="font-size: 16px;"></i></button>
           
 
@@ -203,13 +215,28 @@
           <li> <a href="{% url 'home' %}" class="mobile-logos"> <img src="/static/img/carousel/geek-code.svg" alt="Logo"
                 class="mobile-logo" /></a></li>
           <li>
-            <a href="#">Login</a>
+            <a href="#" class="text-primary" >Login</a>
 
           </li>
           <li>
-            <a href="">Signup</a>
+            <a href="" class="text-primary fw-bold">Signup  </a>
 
-         
+            </li>
+           
+            <li>
+              <h5 class="text-light fw-bold">Courses</h2>
+  
+              </li>
+
+           
+                {% for x in allcourse %}
+                  
+                
+                <li><a href="{% url 'language' x %}" class="text-light  fw-bold">{{x}}</a></li>
+                {% endfor %}
+              
+
+            
 
 
         </ul>
@@ -266,17 +293,19 @@
                 
                 <li>
                   
-                  <a href="">Teach On Geek Code</a>
+                  <a href="{% url 'teach' %}">Teach On Geek Code</a>
                   
                 </li>
                 <li>
-                  <a href="{% url 'aboutus' %}">About Us</a>
+                
+                  <a href="{% url 'careers' %}">Careers</a>
+                    
+                  </li>
                  
-                </li>
-                <li>
-                 <a href="{% url 'contact' %}">Contact Us</a>
-                  
-                </li>
+                  <li>
+                    <a href="{% url 'helpsupport' %}">Help and Support</a>
+                   
+                  </li>
                 <li><a class="footer-logo"><img
                   src="{% static  'img/carousel/geek-code.svg' %}" alt="Logo" /></a></li>
               </ul>
@@ -289,14 +318,14 @@
             <ul class="footer-address-list ftr-details">
               <li>
                 
-              <a href="{% url 'careers' %}">Careers</a>
+              <a href="{% url 'refundpolicy' %}">Refund Policy</a>
                 
               </li>
              
               <li>
-                <a href="{% url 'helpsupport' %}">Help and Support</a>
-               
-              </li>
+                <a href="{% url 'accessibility' %}">Accessibility Statement</a>
+                 
+               </li>
               
              
             </ul>
@@ -315,10 +344,7 @@
                 
               </li>
 
-              <li>
-                <a href="{% url 'accessibility' %}">Accessibility Statement</a>
-                 
-               </li>
+              
               
             </ul>
           </div>
@@ -333,12 +359,12 @@
   <!-- js placed at the end of the document so the pages load faster -->
 
   <script src="/static/js/jquery.min.js"></script>
-  <script defer src="/static/js/bootstrap.bundle.min.js"></script>
+  <script  src="/static/js/bootstrap.bundle.min.js"></script>
   <script src="/static/js/plugin.min.js"></script>
   <script src="/static/js/preloader.js"></script>
 
   <!--common script file-->
-  <script defer src="/static/js/main.js"></script>
+  <script  src="/static/js/main.js"></script>
 
   <script>
     
@@ -394,109 +420,7 @@ input.addEventListener("keypress", function(event) {
 
   </script>
 
-  <script>
-    //Owl-Carousel - client logo
-    var owl = $('.niwax-client-slider');
-    owl.owlCarousel({
-      loop: true,
-      center: false,
-      autoplay: true,
-      margin: 20,
-      nav: false,
-      dots: false,
-      autoplayTimeout: 3500,
-      autoplayHoverPause: true,
-      smartSpeed: 2000,
-      responsive: {
-        0: {
-          items: 3,
-        },
-        520: {
-          items: 3
-        },
-        768: {
-          items: 4
-        },
-        1200: {
-          items: 4
-        },
-        1400: {
-          items: 5
-        },
-        1600: {
-          items: 6
-        },
-      }
-    });
-    //Owl-Carousel - awards card
-    var owl = $('.niwax-logo-slider');
-    owl.owlCarousel({
-      loop: true,
-      center: false,
-      autoplay: true,
-      margin: 20,
-      nav: false,
-      dots: false,
-      autoplayTimeout: 3500,
-      autoplayHoverPause: true,
-      smartSpeed: 2000,
-      responsive: {
-        0: {
-          items: 3,
-        },
-        520: {
-          items: 3
-        },
-        768: {
-          items: 4
-        },
-        1200: {
-          items: 4
-        },
-        1400: {
-          items: 5
-        },
-        1600: {
-          items: 6
-        },
-      }
-    });
 
-    //Owl-Carousel - awards card
-    var owl = $('.niwax-review-slider');
-    owl.owlCarousel({
-      items: 3,
-      loop: true,
-      center: false,
-      autoplay: true,
-      margin: 20,
-      nav: false,
-      dots: true,
-      autoplayTimeout: 3500,
-      autoplayHoverPause: true,
-      smartSpeed: 2000,
-      responsive: {
-        0: {
-          items: 1,
-        },
-        520: {
-          items: 1
-        },
-        768: {
-          items: 2
-        },
-        1200: {
-          items: 2
-        },
-        1400: {
-          items: 3
-        },
-        1600: {
-          items: 3
-        },
-      }
-    });
-  </script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -535,6 +459,10 @@ input.addEventListener("keypress", function(event) {
    
  
   </script>
+
+
+
+<
 </body>
 
 

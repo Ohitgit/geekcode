@@ -1,0 +1,74 @@
+{% extends "webapp/base.html" %}
+
+{% block home %}
+<style>
+
+.information li::before {
+  
+    content: '\2022';
+    position: absolute;
+    left: 98px;
+    font-size: 30px;
+    color: black;
+
+    }
+    .information li{
+        line-height: 26px; 
+        margin-left: 32px;
+
+    }
+</style>
+
+<div class="row">
+    <div class="container">
+        <div class="col-lg-12 " style="margin-top: 120px;">
+            <h3>Refund Policy</h3>
+
+            <p class="text-justify mt-3">At GeekCode.in, managed by Triage Solutions, we want to ensure transparency regarding our refund policy. Please note that once a purchase is made, we do not provide refunds, except under exceptional circumstances as outlined below:</p>
+        
+            <h6 class="mt-4">Duplicate Purchases: </h6>
+
+            <ul class="text-justify mt-3 information">
+                 <li>If a purchase is accidentally made multiple times due to a technical error or payment processing issue, we may consider providing a refund for the duplicate transactions.</li>
+                  
+                </ul>
+            <h6 class="mt-4">Course Unavailability: </h6>
+
+            <ul class="text-justify mt-3 information">
+                <li>In the rare event that a course becomes permanently unavailable or discontinued after purchase, we will issue a full refund to affected customers.</li>
+                 <li class="mt-2">Legal Requirements: We adhere to all applicable laws and regulations regarding consumer rights and refunds. If mandated by law, we will comply with refund requests as required.</li>
+               
+               
+                </ul>
+
+                <h6 class="mt-4">Exceptions: </h6>
+
+            <ul class="text-justify mt-3 information">
+                <li>Change of mind or dissatisfaction with the course content, instructor, or learning experience does not constitute grounds for a refund.
+                    Refunds are not provided for partially completed courses.</li>
+                
+            </ul>
+
+            <h6 class="mt-4">Legal Requirements: </h6>
+
+            <ul class="text-justify mt-3 information">
+                <li>We adhere to all applicable laws and regulations regarding consumer rights and refunds. If mandated by law, we will comply with refund requests as required.</li>
+                
+            </ul>
+            <h6 class="mt-4">How to Contact Us: </h6>
+
+            <ul class="text-justify mt-3 information">
+                <li>If you believe you are eligible for a refund based on the exceptional circumstances outlined above, please contact our customer support team at <a href="mailto::support@geekcode.co.in">support@geekcode.co.in </a> Provide relevant details regarding your purchase and reason for the refund request. Our team will review your case and respond accordingly.</li>
+                 
+            </ul>
+             <h6 class="mt-4">Thank you for understanding our refund policy at GeekCode.in. We appreciate your trust and support in our educational offerings.</h6>
+
+          
+
+            
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

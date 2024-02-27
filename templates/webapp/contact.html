@@ -13,11 +13,11 @@
               <div class="bread-menu wow fadeInUp" data-wow-delay=".2s">
                 <ul>
                   <li><a href="index.html">Home</a></li>
-                  <li><a href="#">Contact Form</a></li>
+                  <li><a href="#">Teach On GeekCode</a></li>
                 </ul>
               </div>
               <div class="bread-title wow fadeInUp" data-wow-delay=".5s">
-                <h2> Contact Us.</h2>
+                <h2> Teach On.</h2>
               </div>
             </div>
           </div>
@@ -46,32 +46,38 @@
                {% endif %}
                
               
-               <form action="#" id="contactform" method="post">
+               <form action="{% url 'teach' %}"  method="post">
+                {% csrf_token %}
                 <div class="fieldsets row">
                   <div class="col-md-6 form-group floating-label">
                     <div class="formicon"><i class="fas fa-user"></i></div>
-                    <input type="text" placeholder=" " required="required" id="name" class="floating-input" name="fullname">
-                    <label>Full Name*</label>
+                    <!-- <input type="text" placeholder=" " required="required" id="name" class="floating-input" name="fullname"> -->
+                    {{form.name}}
+                    
+                    <!-- <label>Name*</label> -->
                     <div class="error-label"></div>
                   </div>
                   <div class="col-md-6 form-group floating-label">
                     <div class="formicon"><i class="fas fa-phone-alt"></i></div>
-                    <input type="tel" placeholder=" " required="required" id="mobile_number" class="floating-input" name="mobile_number">
-                    <label>Mobile Number*</label>
+                    <!-- <input type="email" placeholder=" " required="required" id="email" class="floating-input" name="email">
+                    <label>Email*</label> -->
+                    {{form.email}}
                     <div class="error-label"></div>
                   </div>
                 </div>
                 <div class="fieldsets row">
                   <div class="col-md-6 form-group floating-label">
-                    <div class="formicon"><i class="fas fa-envelope"></i></div>
-                    <input type="email" placeholder=" " required="required" id="email" class="floating-input" name="email">
-                    <label>Email Address*</label>
+                    <div class="formicon"><i class="fas fa-certificate"></i></div>
+                    <!-- <input type="text" placeholder=" " required="required" id="email" class="floating-input" name="certification">
+                    <label>Certification*</label> -->
+                    {{form.certification}}
                     <div class="error-label"></div>
                   </div>
                   <div class="col-md-6 form-group floating-label">
-                    <div class="formicon"><i class="fas fa-map-marker-alt"></i></div>
-                    <input type="text" placeholder=" " required="required" id="your_location" class="floating-input" name="your_location">
-                    <label>Your Location*</label>
+                    <div class="formicon"><i class="fas fa-book-open"></i></div>
+                    <!-- <input type="text" placeholder=" " required="required" id="your_location" class="floating-input" name="qualification">
+                    <label> Qualification*</label> -->
+                    {{form.qualification}}
                     <div class="error-label"></div>
                   </div>
                 </div>
@@ -82,14 +88,20 @@
                 <div class="fieldsets row textareax">
                   <div class="col-md-12 form-group floating-label">
                     <div class="formicon"><i class="fas fa-comment-dots"></i></div>
-                    <textarea placeholder=" " required="required" id="description" class="floating-input" name="description"></textarea>
-                    <label>Messages*</label>
+                    <!-- <textarea placeholder=" " required="required" id="description" class="floating-input" name="description"></textarea>
+                    <label>Messages*</label> -->
+                    {{form.message}}
                     <div class="error-label"></div>
                   </div>
                 </div>
-                <div class="custom-control custom-checkbox ctmsetsw">
-                  <input type="checkbox" class="custom-control-input ctminpt" id="agree" name="agree" checked="checked">
-                  <label class="custom-control-label ctmlabl" for="agree">By clicking the “Submit” button you agree to our  <a href="javascript:void(0)">Terms &amp; Conditions</a>.</label>
+                <div class="fieldsets row textareax">
+                  <div class="col-md-12 form-group floating-label">
+                    <div class="formicon"></div>
+                    <!-- <textarea placeholder=" " required="required" id="description" class="floating-input" name="description"></textarea>
+                    <label>Messages*</label> -->
+                    {{form.captcha}}
+                    <div class="error-label"></div>
+                  </div>
                 </div>
                 <div class="fieldsets mt20"> <button type="submit" name="submit" class="btn btn-main bg-btn w-fit mb20"><span>Submit <i class="fas fa-chevron-right fa-icon"></i></span> <span class="loader"></span></button> </div>
               </form>

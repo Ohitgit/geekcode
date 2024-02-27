@@ -39,7 +39,7 @@
 
                
                 <td scope="col"><button class="btn-br btn btn-primary remove" data-id="{{i.id}}"> Remove </button></td>
-                <td scope="col"><span ><b>₹</b> {{i.price}} </span></td>
+                <td scope="col"><span style="display: inline-flex;" ><b>₹</b> {{i.price}} </span></td>
               </tr>
               {% endfor %}
               {%else%}
@@ -268,7 +268,7 @@ $(".useremail").change(function(e){
             currency: "{{currency}}",
             email: email,
             order_id: "{{ razorpay_order_id }}",
-            "callback_url": "http://127.0.0.1:8000/orderreceived",
+            "callback_url": "{{base_url}}/{{callback_url}}",
             "handler": function (response) {
               alert(response)
 
@@ -337,7 +337,7 @@ $(".useremail").change(function(e){
             currency: "{{currency}}",
             email: email,
             order_id: "{{ razorpay_order_id }}",
-            "callback_url": "http://127.0.0.1:8000/order_received",
+            "callback_url": "{{base_url}}/{{callback_url}}",
             "handler": function (response) {
               alert(response)
 
