@@ -40,11 +40,13 @@
 </head>
 <style>
 
-@media only screen and (max-width: 400px) {
+@media screen and (min-width: 300px) and (max-width: 900px) {
   .dropdown-menu1 li {
     display: none;
     
 }
+
+
 .hc-offcanvas-nav li.nav-close a, .hc-offcanvas-nav li.nav-back a {
    
     padding: 32px;
@@ -58,9 +60,37 @@
     top: -80px;
     left: -13px;
 }
+.copyright{
+
+   font-size: 16px;
+   position: initial !important;
+   margin-top: 16px;
+}
+
+.footer-logo img  {
+    width:50%;
+    /* margin-left: 0px; */
+    display: block;
+    margin-left: -16px;
+}
+
+.footer-address-list li a {
+   
+    font-size: 14px;
+    line-height: 20px;
+    
+}
 
 
 }
+
+
+
+
+
+
+
+
 
 .ui-menu{
  
@@ -70,6 +100,17 @@
     width: 297.172px !important;
 
 }
+.copyright {
+   
+    color: #000;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    bottom: 80px;
+  
+    
+}
+
 
 </style>
 
@@ -101,7 +142,7 @@
           </a>
 
         </div>
-        <input type="text" placeholder="Serach for anything" id="searchinput" class="form-control-sm  form-control-xs form-control-md searchinput tags" id="tags"> <button type="submit"
+        <input type="text" placeholder="Serach for anything" id="searchinput" class="form-control-sm form-control-lg   form-control-xs form-control-md searchinput tags" id="tags"> <button type="submit"
           class="icon" id="icon" ><i class="fa fa-search" style="font-size: 16px;"></i></button>
           
 
@@ -294,7 +335,7 @@
     <div class="footer-row2 ">
       <div class="container">
         <div class="row justify-content-between">
-          <div class="col-lg-3 col-sm-6  ftr-brand-pp">
+          <div class="col-lg-3 col-sm-4 col-xs-4 col-md-4  ftr-brand-pp">
             
               
               
@@ -323,7 +364,7 @@
 
           </div>
 
-          <div class="col-lg-3 col-sm-6">
+          <div class="col-lg-3  col-sm-4 col-xs-4 col-md-4">
             <ul class="footer-address-list ftr-details">
               <li>
                 
@@ -339,7 +380,7 @@
              
             </ul>
           </div>
-          <div class="col-lg-3 col-sm-6">
+          <div class="col-lg-3 col-sm-4 col-xs-4 col-md-4">
             <ul class="footer-address-list ftr-details">
               
               <li>
@@ -357,7 +398,7 @@
               
             </ul>
           </div>
-          <p style="color:#000; text-align: center; font-weight: bold; position: absolute; bottom:80px;">© 2020-2023. All Rights Reserved By Geek Code</p>
+          <p class="copyright" >© 2020-2023. All Rights Reserved By Geek Code</p>
         </div>
       </div>
     </div>

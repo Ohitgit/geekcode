@@ -4,13 +4,7 @@
 
 <head>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EMRG2SBB40"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-EMRG2SBB40');
+ 
   </script>
 
   <meta charset="utf-8" />
@@ -40,8 +34,80 @@
 </head>
 <style>
 
-
-</style>
+  @media screen and (min-width: 300px) and (max-width: 900px) {
+    .dropdown-menu1 li {
+      display: none;
+      
+  }
+  
+  
+  .hc-offcanvas-nav li.nav-close a, .hc-offcanvas-nav li.nav-back a {
+     
+      padding: 32px;
+  }
+  .mobile-logo {
+      /* position: absolute; */
+      /* top: -120px; */
+      position: absolute;
+      width: 105px;
+      height: 108px;
+      top: -80px;
+      left: -13px;
+  }
+  .copyright{
+  
+     font-size: 16px;
+     position: initial !important;
+     margin-top: 16px;
+  }
+  
+  .footer-logo img  {
+      width:50%;
+      /* margin-left: 0px; */
+      display: block;
+      margin-left: -16px;
+  }
+  
+  .footer-address-list li a {
+     
+      font-size: 14px;
+      line-height: 20px;
+      
+  }
+  
+  
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .ui-menu{
+   
+      top: 86px !important;
+      left: 237px !important;
+      padding: 1% !important;
+      width: 297.172px !important;
+  
+  }
+  .copyright {
+     
+      color: #000;
+      text-align: center;
+      font-weight: bold;
+      position: absolute;
+      bottom: 80px;
+    
+      
+  }
+  
+  
+  </style>
+  
 
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
@@ -213,97 +279,83 @@
 
 
 
-  <!--Start Footer-->
-  <footer class="mt-3">
+<!--Start Footer-->
+<footer class="mt-3">
 
-    <div class="footer-row2 ">
-      <div class="container">
-        <div class="row justify-content-between">
-          <div class="col-lg-3 col-sm-6  ftr-brand-pp">
+  <div class="footer-row2 ">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-3 col-sm-4 col-xs-4 col-md-4  ftr-brand-pp">
+          
             
+            
+            <ul class="footer-address-list ftr-details">
               
+              <li>
+                
+                <a href="{% url 'teach' %}">Teach On Geek Code</a>
+                
+              </li>
+              <li>
               
-              <ul class="footer-address-list ftr-details">
-                <li>
-                  
-                <a href="">Geek Code Business</a>
+                <a href="{% url 'careers' %}">Careers</a>
                   
                 </li>
+               
                 <li>
-                  
-                  <a href="">Teach On Geek Code</a>
-                  
-                </li>
-                <li>
-                  <a href="">About Us</a>
+                  <a href="{% url 'helpsupport' %}">Help and Support</a>
                  
                 </li>
-                <li>
-                 <a href="">Contact Us</a>
-                  
-                </li>
-                <li><a class="footer-logo"><img
-                  src="{% static  'img/carousel/geek-code.svg' %}" alt="Logo" /></a></li>
-              </ul>
+              <li><a class="footer-logo"><img
+                src="{% static  'img/carousel/geek-code.svg' %}" alt="Logo" /></a></li>
+            </ul>
+
+          
+
+        </div>
+
+        <div class="col-lg-3  col-sm-4 col-xs-4 col-md-4">
+          <ul class="footer-address-list ftr-details">
+            <li>
+              
+            <a href="{% url 'refundpolicy' %}">Refund Policy</a>
+              
+            </li>
+           
+            <li>
+              <a href="{% url 'accessibility' %}">Accessibility Statement</a>
+               
+             </li>
+            
+           
+          </ul>
+        </div>
+        <div class="col-lg-3 col-sm-4 col-xs-4 col-md-4">
+          <ul class="footer-address-list ftr-details">
+            
+            <li>
+              
+              <a href="{% url 'privacypolicy' %}">Privacy Policy</a>
+              
+            </li>
+            
+            <li>
+             <a href="">Sitemap</a>
+              
+            </li>
 
             
-
-          </div>
-
-          <div class="col-lg-3 col-sm-6">
-            <ul class="footer-address-list ftr-details">
-              <li>
-                
-              <a href="">Careers</a>
-                
-              </li>
-              <li>
-                
-                <a href="">Blog</a>
-                
-              </li>
-              <li>
-                <a href="">Help and Support</a>
-               
-              </li>
-              <li>
-               <a href="">Affiliate</a>
-                
-              </li>
-             
-            </ul>
-          </div>
-          <div class="col-lg-2 col-sm-6">
-            <ul class="footer-address-list ftr-details">
-              <li>
-                
-              <a href="">Terms</a>
-                
-              </li>
-              <li>
-                
-                <a href="">Privacy Policy</a>
-                
-              </li>
-              <li>
-                <a href="">Cookie Settings </a>
-               
-              </li>
-              <li>
-               <a href="">Sitemap</a>
-                
-              </li>
-              
-            </ul>
-          </div>
-          <p style="color:#fff; text-align: center;">© 2020-2023. All Rights Reserved By Geek Code</p>
+            
+          </ul>
         </div>
+        <p class="copyright" >© 2020-2023. All Rights Reserved By Geek Code</p>
       </div>
     </div>
+  </div>
 
-   
-  </footer>
-  <!--End Footer-->
+ 
+</footer>
+<!--End Footer-->
   <!-- js placed at the end of the document so the pages load faster -->
 
   <script src="/static/js/jquery.min.js"></script>
