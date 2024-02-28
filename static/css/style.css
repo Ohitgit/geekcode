@@ -5086,3 +5086,21 @@ background-color:#e9ecef !important;
     color:black;
     font-weight: bold;
 }
+
+ .img-fluids{
+        width:286px;
+        height: 190px;
+        object-fit: contain;
+    }
+
+
+    .img-fluids1{
+        width:334px;
+        height: 190px;
+        object-fit: contain;
+    }
+    .img-fluids2{
+        width:334px;
+        height: 200px;
+        object-fit: contain;
+    }

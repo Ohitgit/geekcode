@@ -1,7 +1,13 @@
 {% extends "webapp/base.html" %}
 
 {% block home %}
-
+<style>
+  .img-fluids2{
+       width:334px;
+       height: 200px;
+       object-fit: contain;
+   }
+</style>
 <!-- Include SweetAlert CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
 
@@ -34,7 +40,7 @@
               {% for i in carts %}
             
               <tr id="tr{{i.id}}">
-                <td scope="col"><img src="{{i.course.image.url}}" alt="" class="img-fluid"></td>
+                <td scope="col"><img src="{{i.course.image.url}}" alt="" class="img-fluids2"></td>
                 <td scope="col">{{i.course.title|truncatewords:4}}</td>
 
                
