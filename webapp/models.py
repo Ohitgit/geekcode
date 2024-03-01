@@ -3,7 +3,10 @@ from django.utils.text import slugify
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
-
+from PIL import Image
+from io import BytesIO
+from django.conf import settings
+import os
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=100,null=True,blank=True ,db_index=True)
@@ -48,10 +51,29 @@ class Course(models.Model):
     content=models.TextField(null=True)
     short_description=models.TextField(null=True)
     price = models.IntegerField(null=True,blank=True ,db_index=True)
-    image=models.FileField(null=True,db_index=True,upload_to='media/images/')
+    image=models.FileField(null=True,db_index=True,upload_to='course')
     datetime=models.DateTimeField(null=True,default=tz.now)
     def __str__(self):
       return str(self.title)
+    
+    def save(self,*args,**kwargs):
+        super().save(*args,**kwargs)
+
+        img=Image.open(self.image.path)
+        if img.height > 600 and img.width > 800:
+           output_size=(800,600)
+           img.thumbnail(output_size)
+           webp_output = BytesIO()
+           img.save(webp_output, format='WebP')
+           webp_output.seek(0)
+           resized_webp_image_path = f"{self.image.name.replace('.jpg', '.webp')}"
+           resized_webp_image_full_path = os.path.join(settings.MEDIA_ROOT, resized_webp_image_path)
+           print('resize',resized_webp_image_full_path)
+           os.makedirs(os.path.dirname(resized_webp_image_full_path), exist_ok=True)
+           with open(resized_webp_image_full_path, 'wb') as webp_file:
+            webp_file.write(webp_output.read())
+           self.image.name = resized_webp_image_path
+           super().save(*args, **kwargs)
 
 # @receiver(pre_save, sender=Course)
 # def create_slug(sender, instance, **kwargs):
